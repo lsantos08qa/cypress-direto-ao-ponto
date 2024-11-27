@@ -19,23 +19,23 @@
     // });
     
     it('Cadastrar uma entrada ', () => { // Aqui usamos uma função refatorando o código e deixando mais limpo
-        criarTransacao("Freela", 250)
-        criarTransacao("Freela 2", 500)
-        criarTransacao("Freela 3", 800)
+        cy.criarTransacao("Freela", 250)
+        cy.criarTransacao("Freela 2", 500)
+        cy.criarTransacao("Freela 3", 800)
         //cy.get("tbody tr td.description").should("have.text", "Freela") 
         cy.get("tbody tr td.description").should("have.length", 3) // Verifica se existem 3 transações na tabela como cada um tem um nome diferente
     });
 
     it('Cadastrar uma saída', () => {
-        criarTransacao("Cinema", -45)
-        criarTransacao("Jantar", -95)
+        cy.criarTransacao("Cinema", -45)
+        cy.criarTransacao("Jantar", -95)
 
         cy.get("tbody tr").should("have.length", 2)  // Verifica se existem 2 transações de saída
     });
     
      // // it('Excluir transação', () => {
-    // //     criarTransacao("Freela US", 400)
-    // //     criarTransacao("Mesada", 100)
+    // //    cy.criarTransacao("Freela US", 400)
+    // //    cy.criarTransacao("Mesada", 100)
 
     // //     cy.contains(".description", "Freela US") //td ==> referencia
     // //     .parent() //tr
@@ -46,8 +46,8 @@
     // // });
     
     it('Excluir transação', () => {
-        criarTransacao("Freela UK", 200)
-        criarTransacao("Mesada", 100)
+        cy.criarTransacao("Freela UK", 200)
+        cy.criarTransacao("Mesada", 100)
 
         cy.contains(".description", "Freela UK")
         .siblings() // "usando os irmãos"
